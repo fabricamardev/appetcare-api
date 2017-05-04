@@ -15,8 +15,9 @@ class CreateTutoresTable extends Migration
     {
         Schema::create('tutores', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->integer('endereco_id')->unsigned();
             
-            $table->foreign('endereco_id')
+            $table->foreign('endereco_id')->
             references('id')->
             on('enderecos');
 

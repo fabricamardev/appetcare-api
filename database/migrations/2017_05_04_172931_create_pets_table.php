@@ -15,14 +15,17 @@ class CreatePetsTable extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('tutor_id')
+            $table->integer('tutor_id')->unsigned();
+            $table->integer('raca_id')->unsigned();
+            
+            $table->foreign('tutor_id')->
             references('id')->
             on('tutores');
             
             $table->string('nome');
             $table->dateTime('data_nascimento');
             
-            $table->foreign('raca_id')
+            $table->foreign('raca_id')->
             references('id')->
             on('racas');
 

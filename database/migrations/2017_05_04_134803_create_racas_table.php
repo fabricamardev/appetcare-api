@@ -15,8 +15,9 @@ class CreateRacasTable extends Migration
     {
         Schema::create('racas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('especie_id')->unsigned();
 
-            $table->foreign('especie_id')
+            $table->foreign('especie_id')->
             references('id')->
             on('especies');
 
@@ -31,6 +32,6 @@ class CreateRacasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('racas');
     }
 }
