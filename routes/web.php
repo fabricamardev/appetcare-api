@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'v1'], function () {
+    Route::resource('/pets', 'Api\PetsController');
+	Route::resource('/tutores', 'Api\TutoresController');
+	Route::resource('/especies', 'Api\EspeciesController');
+	Route::resource('/racas', 'Api\RacasController');
+	Route::resource('/enderecos', 'Api\EnderecosController');
 });
