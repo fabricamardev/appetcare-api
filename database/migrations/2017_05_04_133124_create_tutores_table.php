@@ -24,7 +24,7 @@ class CreateTutoresTable extends Migration
             $table->string('nome');
             $table->string('email');
             $table->string('telefone');
-            $table->string('cpf')->unique();            
+            $table->string('cpf')->unique();    
         });
     }
 

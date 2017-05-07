@@ -17,7 +17,7 @@ class CreateEnderecosTable extends Migration
             $table->increments('id');
             $table->string('logradouro');
             $table->string('numero');
-            $table->string('cep')->unique();                
+            $table->string('cep');                
             $table->string('bairro');
             $table->string('cidade');
             $table->string('uf');
