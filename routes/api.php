@@ -46,7 +46,7 @@ use Illuminate\Http\Request;
 */
 
 
-//Route::resource('/users', 'Api\UsuariosController');
+Route::resource('/users', 'Api\UsuariosController');
 
 Route::group(['middleware' => ['auth:api']], function() {
 	Route::group(['prefix' => 'v1'], function () {
