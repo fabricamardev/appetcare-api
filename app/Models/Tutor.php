@@ -8,9 +8,9 @@ class Tutor extends Model
 {
     protected $table = 'tutores';
     public $timestamps = false;
-    protected $fillable = [ 'nome', 'email', 'telefone', 'cpf', 'endereco_id' ];
+    protected $fillable = [ 'nome', 'email', 'telefone', 'cpf'];
 
     public function endereco() {
-        return $this->belongsTo('App\Models\Endereco');
+        return $this->hasMany('App\Models\Endereco');        
     }
 }
