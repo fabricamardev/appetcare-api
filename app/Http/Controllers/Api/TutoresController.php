@@ -11,7 +11,7 @@ class TutoresController extends Controller
     use \App\Http\Controllers\ApiControllerTrait;
 
     protected $model;
-    protected $relationships = ['endereco'];
+    protected $relationships = [];
 
     public function __construct(\App\Models\Tutor $model) {
         $this->model = $model;

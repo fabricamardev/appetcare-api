@@ -10,7 +10,8 @@ class Tutor extends Model
     public $timestamps = false;
     protected $fillable = [ 'nome', 'email', 'telefone', 'cpf'];
 
-    public function endereco() {
-        return $this->hasMany('App\Models\Endereco');        
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }

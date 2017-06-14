@@ -55,7 +55,7 @@ Route::group(['middleware' => ['auth:api']], function() {
 		Route::resource('/enderecos', 'Api\EnderecosController');
 		Route::resource('/especies', 'Api\EspeciesController');
 		Route::resource('/racas', 'Api\RacasController');
+        Route::resource('/estabelecimentos', 'Api\EstabelecimentoController');
+        Route::resource('/servicos', 'Api\ServicosController');
 	});
 });
-
-

@@ -10,7 +10,7 @@ class EstabelecimentoController extends Controller
     use \App\Http\Controllers\ApiControllerTrait;
 
     protected $model;
-    protected $relationships = [];
+    protected $relationships = ['servico'];
 
     public function __construct(\App\Models\Estabelecimento $model) {
         $this->model = $model;
