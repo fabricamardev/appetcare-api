@@ -18,6 +18,9 @@ class CreateServicosTable extends Migration
             $table->string('nome');
             $table->string('descricao');
             $table->decimal('valor', 5, 2);
+            $table->integer('estabelecimento_id')->unsigned();
+
+            $table->foreign('estabelecimento_id')->references('id')->on('estabelecimentos');
         });
     }
 

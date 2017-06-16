@@ -15,12 +15,14 @@ class CreateEstabelecimentosTable extends Migration
     {
         Schema::create('estabelecimentos', function(Blueprint $table) {
             $table->increments('id');
+            $table->string('image')->nullable();
             $table->string('nome');
-            $table->string('tipo');
-            $table->string('descricao');
-            $table->string('endereco');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->string('email');
+            $table->string('tipo')->nullable();
+            $table->string('descricao')->nullable();
+            $table->string('endereco')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
         });
     }
 

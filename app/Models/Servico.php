@@ -8,9 +8,9 @@ class Servico extends Model
 {
     protected $table = 'servicos';
     public $timestamps = false;
-    protected $fillable = ['nome', 'descricao', 'valor'];
+    protected $fillable = ['nome', 'descricao', 'valor', 'estabelecimento_id'];
 
-    public function estabelecimentos() {
-        return $this->belongsToMany('App\Models\Estabelecimento');
+    public function estabelecimento() {
+        return $this->belongsTo('App\Models\Estabelecimento');
     }
 }

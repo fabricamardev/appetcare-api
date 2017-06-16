@@ -44,10 +44,9 @@ trait ApiControllerTrait
             }
             return $query;
         })
-        ->where($where)
-        ->paginate($limit);
-        
-        return response()->json($result);
+        ->where($where)->get();
+
+        return response()->json(['result' => $result, 'status' => 'success']);
     }
 
     /**

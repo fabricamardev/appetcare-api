@@ -47,6 +47,8 @@ use Illuminate\Http\Request;
 
 
 Route::resource('/users', 'Api\UsuariosController');
+Route::post('/estabelecimentos', 'Api\EstabelecimentoController@store');
+Route::post('/tutores', 'Api\TutoresController@store');
 
 Route::group(['middleware' => ['auth:api']], function() {
 	Route::group(['prefix' => 'v1'], function () {

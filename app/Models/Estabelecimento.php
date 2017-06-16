@@ -8,10 +8,10 @@ class Estabelecimento extends Model
 {
     protected $table = 'estabelecimentos';
     public $timestamps = false;
-    protected $fillable = ['nome', 'tipo', 'descricao', 'endereco', 'latitude', 'longitude'];
+    protected $fillable = ['image', 'nome', 'email', 'tipo', 'descricao', 'endereco', 'latitude', 'longitude'];
 
-    public function servicos() {
-        return $this->belongsToMany('App\Models\Servico');
+    public function servico() {
+        return $this->hasMany('App\Models\Servico');
     }
 
     public function user()
