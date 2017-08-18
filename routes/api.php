@@ -56,8 +56,11 @@ Route::group(['middleware' => ['auth:api']], function() {
 		Route::resource('/tutores', 'Api\TutoresController');
 		Route::resource('/enderecos', 'Api\EnderecosController');
 		Route::resource('/especies', 'Api\EspeciesController');
-		Route::resource('/racas', 'Api\RacasController');
+        Route::resource('/racas', 'Api\RacasController');
+        Route::resource('/funcionamento', 'Api\FuncionamentoController');
+        Route::resource('/agendamento', 'Api\AgendamentoController');
         Route::resource('/estabelecimentos', 'Api\EstabelecimentoController');
+        Route::get('/estabelecimentos/{id}/horarios-disponiveis/{data}', 'Api\EstabelecimentoController@horariosDisponiveis');
         Route::resource('/servicos', 'Api\ServicosController');
 	});
 });

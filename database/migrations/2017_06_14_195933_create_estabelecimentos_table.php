@@ -17,7 +17,7 @@ class CreateEstabelecimentosTable extends Migration
             $table->increments('id');
             $table->string('image')->nullable();
             $table->string('nome');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('tipo')->nullable();
             $table->string('descricao')->nullable();
             $table->string('endereco')->nullable();

@@ -5,15 +5,14 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-
-class TutoresController extends Controller
+class UsoMedicamentoController extends Controller
 {
     use \App\Http\Controllers\ApiControllerTrait;
 
     protected $model;
-    protected $relationships = [];
+    protected $relationships = ['pet'];
 
-    public function __construct(\App\Models\Tutor $model) {
+    public function __construct(\App\Models\UsoMedicamento $model) {
         $this->model = $model;
     }
 }

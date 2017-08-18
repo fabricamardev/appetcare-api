@@ -16,7 +16,8 @@ class CreateTutoresTable extends Migration
         Schema::create('tutores', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('nome');
-            $table->string('email');
+            $table->string('image')->nullable();
+            $table->string('email')->unique();
             $table->string('telefone');
             $table->string('cpf')->unique();    
         });

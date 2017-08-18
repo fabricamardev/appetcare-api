@@ -18,16 +18,14 @@ class CreatePetsTable extends Migration
             $table->integer('tutor_id')->unsigned();
             $table->integer('raca_id')->unsigned();
             
-            $table->foreign('tutor_id')->
-            references('id')->
-            on('tutores');
+            $table->foreign('tutor_id')->references('id')->on('tutores');
             
             $table->string('nome');
+            $table->string('image')->nullable();
+            $table->decimal('peso', 2, 2)->unsigned();
             $table->dateTime('data_nascimento');
             
-            $table->foreign('raca_id')->
-            references('id')->
-            on('racas');
+            $table->foreign('raca_id')->references('id')->on('racas');
 
             $table->text('obs');
         });
