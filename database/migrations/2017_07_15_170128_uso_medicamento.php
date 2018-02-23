@@ -20,7 +20,7 @@ class UsoMedicamento extends Migration
             $table->string('marca');
             $table->timestamp('data_uso');
             $table->string('peso');
-            $table->double('dose', 2, 2);
+            $table->double('dose', 5, 2)->unsigned()->nullable();
 
             $table->integer('pet_id')->unsigned();
             $table->foreign('pet_id')->references('id')->on('pets');

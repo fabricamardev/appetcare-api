@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::resource('/funcionamento', 'Api\FuncionamentoController');
         Route::resource('/agendamento', 'Api\AgendamentoController');
         Route::resource('/estabelecimentos', 'Api\EstabelecimentoController');
+        Route::resource('/uso-medicamentos', 'Api\UsoMedicamentoController');
         Route::get('/estabelecimentos/{id}/horarios-disponiveis/{data}', 'Api\EstabelecimentoController@horariosDisponiveis');
         Route::resource('/servicos', 'Api\ServicosController');
 	});

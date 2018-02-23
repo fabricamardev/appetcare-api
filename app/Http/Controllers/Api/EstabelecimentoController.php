@@ -19,7 +19,7 @@ class EstabelecimentoController extends Controller
     public function horariosDisponiveis($id, $data) {
         $estabelecimento = $this->model->with(['funcionamento', 'agendamento'])->find($id);
         
-        $agendamentos = $estabelecimento->agendamento;
+        $estabelecimento->agendamento = \App\Models\Agendamento::where('estabelecimento_id', $id)->where('data', $data)->get();
 
         $de_manha = $estabelecimento->funcionamento['de_manha'];
         $ate_manha = $estabelecimento->funcionamento['ate_manha'];
@@ -31,33 +31,33 @@ class EstabelecimentoController extends Controller
         while ($ate_manha > $de_manha) {
             $horario = $de_manha . "h às " . ($de_manha += 1) . "h";
 
-            foreach ($estabelecimento->agendamento as $agendamento) {
-                if ($data == $agendamento['data']) {
-                    if ($horario === $agendamento['horario']) {
-                        $adiciona = false;
-                    } else {
-                        $adiciona = true;
-                    } 
-                }           
+            if (count($estabelecimento->agendamento) > 0) {
+                foreach ($estabelecimento->agendamento as $agendamento) {
+                    if ($data == $agendamento['data']) {
+                        if ($horario !== $agendamento['horario']) {
+                            array_push($horarios, $horario);
+                        } 
+                    }           
+                }
+            } else {
+                array_push($horarios, $horario);
             }
-
-            if ($adiciona == true) { array_push($horarios, $horario); }
         }
 
         while ($ate_tarde > $de_tarde) {
             $horario = $de_tarde . "h às " . ($de_tarde += 1) . "h";
 
-            foreach ($estabelecimento->agendamento as $agendamento) {
-                if ($data == $agendamento['data']) {
-                    if ($horario === $agendamento['horario']) {
-                        $adiciona = false;
-                    } else {
-                        $adiciona = true;
-                    } 
-                }
+            if (count($estabelecimento->agendamento) > 0) {
+                foreach ($estabelecimento->agendamento as $agendamento) {
+                    if ($data == $agendamento['data']) {
+                        if ($horario !== $agendamento['horario']) {
+                            array_push($horarios, $horario);
+                        } 
+                    }
+                }    
+            } else {
+                array_push($horarios, $horario);
             }
-
-            if ($adiciona == true) { array_push($horarios, $horario); }
         }
 
         return response()->json(['horarios' => $horarios]);

@@ -20,9 +20,13 @@ class Agendamento extends Migration
             $table->string('horario');
             $table->integer('servico_id')->unsigned();
             $table->integer('estabelecimento_id')->unsigned();
+            $table->integer('tutor_id')->unsigned();
+            $table->integer('pet_id')->unsigned();
             
             $table->foreign('servico_id')->references('id')->on('servicos');
             $table->foreign('estabelecimento_id')->references('id')->on('estabelecimentos');
+            $table->foreign('tutor_id')->references('id')->on('tutores');
+            $table->foreign('pet_id')->references('id')->on('pets');
         });
     }
 

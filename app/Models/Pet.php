@@ -9,7 +9,7 @@ class Pet extends Model
 {
     protected $table = 'pets';
     public $timestamps = false;
-    protected $fillable = [ 'tutor_id', 'raca_id', 'nome', 'data_nascimento', 'obs' ];
+    protected $fillable = [ 'tutor_id', 'raca_id', 'nome', 'data_nascimento', 'image', 'peso', 'obs', 'sexo'  ];
 
     public function tutor() {
         return $this->belongsTo('App\Models\Tutor');
